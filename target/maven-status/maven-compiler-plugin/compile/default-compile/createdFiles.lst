@@ -1,0 +1,6 @@
+letShop\pages\PaymentPage.class
+letShop\pages\DashboardPage.class
+letShop\pages\LoginPage.class
+letShop\base\BasePage.class
+letShop\utilities\ExtentReport.class
+letShop\pages\CartPage.class
