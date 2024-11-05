@@ -48,7 +48,8 @@ public class BaseTest {
 		return driver;
 	}
 	
-	public void takeScreenshot(WebDriver driver){
+	public void takeScreenshot(){
+		WebDriver driver = this.driver;
 		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File file = new File("D:\\Playground\\Workspace\\LetShop\\screenshots\\LoginTest.png");
 		try {
@@ -65,10 +66,11 @@ public class BaseTest {
 	
 	@BeforeMethod
 	public LoginPage launchApplication() throws IOException {
-		driver = initializeDriver();
-		lp = new LoginPage(driver);
-		lp.goTo();
-		return lp;
+		  driver = initializeDriver();
+		  lp = new LoginPage(driver); 
+		  lp.goTo();
+		  return lp;
+		 
 	}
 	
 	@AfterMethod

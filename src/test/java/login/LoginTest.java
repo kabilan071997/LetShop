@@ -13,6 +13,7 @@ import com.sun.net.httpserver.Authenticator.Retry;
 import letShop.pages.CartPage;
 import letShop.pages.DashboardPage;
 import letShop.pages.PaymentPage;
+import letShop.utilities.Read_XLSX;
 import testComponents.BaseTest;
 import testComponents.RetryFailedCase;
 
@@ -22,20 +23,22 @@ public class LoginTest extends BaseTest {
 	public void testLoginSubmitProducts(String userName, String password) throws IOException, InterruptedException {
 
 		// GLobal variable
-		String productToBeSelected[] = { "IPHONE 13 PRO", "ZARA COAT 3" };
-		// Convert to array to Array List
-		List<String> productToBeSelectedList = Arrays.asList(productToBeSelected);
 		
-		DashboardPage dp = lp.login(userName, password);
-		CartPage cp = dp.selectProducts(productToBeSelectedList);
-		PaymentPage pp = cp.checkItemsAddedToCart(productToBeSelectedList);
-		pp.completePayment();
+		  String productToBeSelected[] = { "IPHONE 13 PRO", "ZARA COAT 3" }; 
+		  // Convert to array to Array List 
+		  List<String> productToBeSelectedList = Arrays.asList(productToBeSelected);
+		  
+		  DashboardPage dp = lp.login(userName, password);
+		  CartPage cp = dp.selectProducts(productToBeSelectedList);
+		  PaymentPage pp = cp.checkItemsAddedToCart(productToBeSelectedList);
+		  pp.completePayment();
+		 
 		//takeScreenshot();
 	}
 
-	@DataProvider
-	public String[][] getData() {
-		return new String[][] { { "kabilan@gmail.com", "Kabilann@7" } };
+	@DataProvider(name="getData")
+	public Object[][] getDataFromExcel() throws IOException {
+		return Read_XLSX.getTestData();
 	}
 
 }

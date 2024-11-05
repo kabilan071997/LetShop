@@ -32,12 +32,7 @@ public class Listeners extends BaseTest implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		test.log(Status.FAIL, "Test Failed - Inside onTestFailure");
-		try {
-			driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
-		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-			e.printStackTrace();
-		}
-		takeScreenshot(driver);
+		takeScreenshot();
 		test.addScreenCaptureFromPath("D:\\Playground\\Workspace\\LetShop\\screenshots\\LoginTest.png", "Login Failed");
 	}
 

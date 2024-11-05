@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="tests">
+<suite name="Suite">
 
 <listeners>
 <listener class-name="testComponents.Listeners"></listener>
 </listeners>
 
-  <test name="Error Login Test">
+<!--  <test name="Error Login Test">
     <classes>
       <class name="login.ErrorLoginTest"/>
     </classes>
-  </test>
+  </test>-->
   
     <test name="Login Test">
     <classes>
